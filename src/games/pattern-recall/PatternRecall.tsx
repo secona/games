@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './PatternRecall.css'
 
 const GRID_SIZE = 5
@@ -36,6 +36,8 @@ function PatternRecall() {
   const [pattern, setPattern] = useState<Set<number>>(() => new Set())
   const [selected, setSelected] = useState<Set<number>>(() => new Set())
   const [phase, setPhase] = useState<Phase>('idle')
+  const [isInfoOpen, setIsInfoOpen] = useState(false)
+  const closeInfoButtonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     if (phase !== 'revealing') {
@@ -48,6 +50,27 @@ function PatternRecall() {
 
     return () => window.clearTimeout(timeoutId)
   }, [phase])
+
+  useEffect(() => {
+    if (!isInfoOpen) {
+      return undefined
+    }
+
+    const previouslyFocusedElement = document.activeElement as HTMLElement | null
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsInfoOpen(false)
+      }
+    }
+
+    closeInfoButtonRef.current?.focus()
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      previouslyFocusedElement?.focus()
+    }
+  }, [isInfoOpen])
 
   function startRound() {
     setPattern(createPattern())
@@ -91,9 +114,20 @@ function PatternRecall() {
       <header className="title-bar">
         <WindowButtons />
         <span className="title-bar__label">GAMES.SECONA.DEV / PATTERN RECALL</span>
-        <a className="game-back-link" href="/">
-          ← HOME
-        </a>
+        <div className="game-nav-actions">
+          <a className="game-back-link" href="/">
+            ← HOME
+          </a>
+          <button
+            aria-label="About Pattern Recall"
+            className="game-info-button"
+            onClick={() => setIsInfoOpen(true)}
+            title="About Pattern Recall"
+            type="button"
+          >
+            <span aria-hidden="true">i</span>
+          </button>
+        </div>
       </header>
 
       <div className="pattern-recall-content">
@@ -139,6 +173,46 @@ function PatternRecall() {
           </button>
         </section>
       </div>
+
+      {isInfoOpen ? (
+        <div
+          aria-label="Close game information"
+          className="info-modal-backdrop"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) {
+              setIsInfoOpen(false)
+            }
+          }}
+        >
+          <section
+            aria-labelledby="pattern-recall-info-title"
+            aria-modal="true"
+            className="info-modal"
+            role="dialog"
+          >
+            <div className="info-modal__header">
+              <p className="info-modal__eyebrow">MEMORY TEST / 01</p>
+              <button
+                aria-label="Close game information"
+                className="info-modal__close"
+                onClick={() => setIsInfoOpen(false)}
+                ref={closeInfoButtonRef}
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <h2 id="pattern-recall-info-title">Pattern Recall</h2>
+            <p>
+              Watch the six highlighted tiles, then find them again after the
+              pattern disappears.
+            </p>
+            <p>
+              Pick every matching tile to win. One wrong choice ends the round.
+            </p>
+          </section>
+        </div>
+      ) : null}
     </main>
   )
 }
