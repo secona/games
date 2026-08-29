@@ -26,7 +26,7 @@ There is no test framework or `test` script configured yet. For UI changes, run 
 
 Use two-space indentation, single quotes, no semicolons, and trailing commas where the existing TypeScript style uses them. Name React components and component files in PascalCase; use descriptive camelCase variables and handlers. Prefer direct imports and typed props. Use Base UI primitives through shared wrappers in `src/components` rather than duplicating buttons, dialogs, or focus behavior.
 
-Keep the visual system consistent: reuse the CSS tokens in `src/App.css`, use crisp 2px borders and hard offset shadows, Space Mono for UI labels, and Impact-style uppercase display headings. Use `100svh`/`vh`-aware layout values and avoid width-based vertical padding that can introduce page scrollbars.
+Keep the visual system consistent: reuse the CSS tokens in `src/App.css`, use the established cool blue-gray canvas and pale paper surface instead of beige backgrounds, use crisp 2px borders and hard offset shadows, Space Mono for UI labels, and Impact-style uppercase display headings. Use `100svh`/`vh`-aware layout values and avoid width-based vertical padding that can introduce page scrollbars. Design color states for protanopia: do not use green and yellow as a meaningful pair; prefer the established blue accent when a state must contrast with yellow, and never rely on color alone to communicate state.
 
 ## Testing Guidelines
 

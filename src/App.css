@@ -1,9 +1,9 @@
 :root {
   --ink: #171717;
-  --paper: #f6f1e8;
+  --paper: #f2f6fa;
   --yellow: #f5c84b;
   --red: #f16a5a;
-  --green: #87b86b;
+  --blue: #6f9fe8;
   --line: 2px solid var(--ink);
   --shadow: 6px 6px 0 var(--ink);
 }
@@ -219,7 +219,7 @@ h1 {
 }
 
 .game-slot:nth-child(3n + 3) {
-  background: #dce9cf;
+  background: #dce8f8;
 }
 
 @media (max-width: 680px) {

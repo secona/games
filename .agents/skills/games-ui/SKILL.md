@@ -79,17 +79,17 @@ Use the existing tokens from `src/App.css`:
 
 ```css
 --ink: #171717;
---paper: #f6f1e8;
+--paper: #f2f6fa;
 --yellow: #f5c84b;
 --red: #f16a5a;
---green: #87b86b;
+--blue: #6f9fe8;
 --line: 2px solid var(--ink);
 --shadow: 6px 6px 0 var(--ink);
 ```
 
 The intended direction is a crisp retro game interface:
 
-- warm paper background, near-black ink, and yellow/red/green accents;
+- a cool blue-gray canvas, pale paper surface, near-black ink, and yellow/red/blue accents chosen to keep yellow and secondary states distinct for people with protanopia;
 - 2px dark borders and hard offset shadows, not soft shadows;
 - square or rectangular controls with little or no rounding;
 - Space Mono for labels, statuses, progress, and controls;
@@ -98,6 +98,8 @@ The intended direction is a crisp retro game interface:
 - short, quick transforms for hover/active feedback.
 
 Prefer existing tokens and selectors over new near-duplicate colors. Avoid gradients, glass effects, excessive radii, and generic UI-library styling unless the request explicitly calls for them.
+
+Do not pair green with yellow to communicate different states. The product owner has protanopia, so use the established blue accent for states that need to contrast with yellow, retain non-color cues where available, and do not rely on color alone to communicate meaning.
 
 Global layout invariants:
 

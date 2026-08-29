@@ -38,7 +38,7 @@
 }
 
 .game-button--icon {
-  background: var(--green);
+  background: var(--blue);
   box-shadow: 3px 3px 0 var(--ink);
   font-size: 16px;
   transition: transform 120ms ease, box-shadow 120ms ease;

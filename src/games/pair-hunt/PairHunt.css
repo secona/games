@@ -63,7 +63,7 @@
 
 .pair-card.is-matched {
   opacity: 1;
-  background: var(--green);
+  background: var(--blue);
 }
 
 .pair-card.is-mismatch {
