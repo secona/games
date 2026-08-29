@@ -107,7 +107,7 @@ The intended direction is a crisp retro game interface:
 
 Prefer existing tokens and selectors over new near-duplicate colors. Avoid gradients, glass effects, excessive radii, and generic UI-library styling unless the request explicitly calls for them.
 
-Do not pair green with yellow to communicate different states. The product owner has protanopia and prefers colors that pop rather than washed-out pastels. Game boards should be visually quiet at rest: use `--paper` for face-down tiles, then `--tile-hover`, `--revealed`, `--correct`, and `--error` for interaction states. Retain non-color cues such as the matched-card check badge and do not rely on color alone to communicate meaning.
+Game boards should be visually quiet at rest: use `--paper` for face-down tiles, then `--tile-hover`, `--revealed`, `--correct`, and `--error` for interaction states. Retain non-color cues such as the matched-card check badge and do not rely on color alone to communicate meaning.
 
 Theme selection is global and device-local. Each theme must give `--primary` a visibly distinct control color so buttons clearly respond when themes change. Arcade pairs a neon-lemon canvas with deeper electric-yellow controls, dark control ink, and a near-white paper surface for a striking two-yellow treatment. Add Settings through the shared `TitleBar`, keep theme IDs validated, store only the selected ID under the versioned key `games:theme:v1`, and apply saved themes before first paint.
 
