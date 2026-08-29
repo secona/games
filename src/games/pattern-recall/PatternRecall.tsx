@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import { Button } from '../../components/Button'
 import { Modal } from '../../components/Modal'
+import { WindowButtons } from '../../components/WindowButtons'
 import './PatternRecall.css'
 
 const GRID_SIZE = 5
@@ -23,16 +24,6 @@ function createPattern() {
   }
 
   return new Set(positions.slice(0, TARGET_COUNT))
-}
-
-function WindowButtons() {
-  return (
-    <div className="window-buttons" aria-hidden="true">
-      <span className="window-button window-button--red" />
-      <span className="window-button window-button--yellow" />
-      <span className="window-button window-button--green" />
-    </div>
-  )
 }
 
 function PatternRecall() {

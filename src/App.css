@@ -53,32 +53,6 @@
   color: #65615a;
 }
 
-.window-buttons {
-  display: flex;
-  gap: 6px;
-}
-
-.window-button {
-  display: block;
-  width: 12px;
-  height: 12px;
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  box-sizing: border-box;
-}
-
-.window-button--red {
-  background: var(--red);
-}
-
-.window-button--yellow {
-  background: var(--yellow);
-}
-
-.window-button--green {
-  background: var(--green);
-}
-
 .hero {
   display: flex;
   align-items: flex-end;
