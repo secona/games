@@ -14,11 +14,19 @@ function HomePage() {
       </section>
 
       <section className="games-grid" aria-label="Games">
-        <Link className="game-slot game-slot--pattern" to="/pattern-recall">
+        <Link className="game-slot game-slot--playable" to="/pattern-recall">
           <span className="game-slot__index">01</span>
           <span className="game-slot__name">Pattern Recall</span>
           <span className="game-slot__description">
             Remember the highlighted pattern, then find it again.
+          </span>
+          <span className="game-slot__action">PLAY ↗</span>
+        </Link>
+        <Link className="game-slot game-slot--playable" to="/pair-hunt">
+          <span className="game-slot__index">02</span>
+          <span className="game-slot__name">Pair Hunt</span>
+          <span className="game-slot__description">
+            Turn the cards and uncover every matching icon pair.
           </span>
           <span className="game-slot__action">PLAY ↗</span>
         </Link>

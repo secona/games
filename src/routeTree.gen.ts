@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PairHuntRouteImport } from './routes/pair-hunt'
 import { Route as PatternRecallRouteImport } from './routes/pattern-recall'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PairHuntRoute = PairHuntRouteImport.update({
+  id: '/pair-hunt',
+  path: '/pair-hunt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PatternRecallRoute = PatternRecallRouteImport.update({
@@ -25,27 +31,31 @@ const PatternRecallRoute = PatternRecallRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/pair-hunt': typeof PairHuntRoute
   '/pattern-recall': typeof PatternRecallRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/pair-hunt': typeof PairHuntRoute
   '/pattern-recall': typeof PatternRecallRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/pair-hunt': typeof PairHuntRoute
   '/pattern-recall': typeof PatternRecallRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pattern-recall'
+  fullPaths: '/' | '/pair-hunt' | '/pattern-recall'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pattern-recall'
-  id: '__root__' | '/' | '/pattern-recall'
+  to: '/' | '/pair-hunt' | '/pattern-recall'
+  id: '__root__' | '/' | '/pair-hunt' | '/pattern-recall'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PairHuntRoute: typeof PairHuntRoute
   PatternRecallRoute: typeof PatternRecallRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pair-hunt': {
+      id: '/pair-hunt'
+      path: '/pair-hunt'
+      fullPath: '/pair-hunt'
+      preLoaderRoute: typeof PairHuntRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pattern-recall': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PairHuntRoute: PairHuntRoute,
   PatternRecallRoute: PatternRecallRoute,
 }
 export const routeTree = rootRouteImport

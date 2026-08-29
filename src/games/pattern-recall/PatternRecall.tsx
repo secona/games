@@ -92,7 +92,7 @@ function PatternRecall() {
           <Modal
             closeLabel="Close game information"
             description="Watch the six highlighted tiles, then find them again after the pattern disappears."
-            eyebrow="MEMORY TEST / 01"
+            eyebrow="PATTERN RECALL"
             trigger={
               <Button
                 aria-label="About Pattern Recall"

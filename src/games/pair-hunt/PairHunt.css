@@ -1,0 +1,96 @@
+.pair-hunt-content {
+  display: grid;
+  place-items: center;
+  min-height: calc(100svh - 88px);
+  padding: clamp(24px, 5vh, 52px) 7.5%;
+  box-sizing: border-box;
+}
+
+.pair-hunt-console {
+  width: min(100%, 520px);
+}
+
+.pair-board {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 6px;
+  width: 100%;
+  margin: 20px auto 18px;
+  padding: 10px;
+  border: var(--line);
+  background: var(--ink);
+  box-sizing: border-box;
+}
+
+.game-button--tile.pair-card {
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  color: var(--ink);
+  background: var(--yellow);
+}
+
+.pair-card:not(:disabled):hover {
+  background: #eab83e;
+}
+
+.pair-card__back {
+  width: 58%;
+  height: 58%;
+  color: var(--ink);
+}
+
+.pair-card__icon {
+  display: none;
+  width: 58%;
+  height: 58%;
+}
+
+.pair-card.is-open {
+  background: var(--paper);
+}
+
+.pair-card.is-open .pair-card__back {
+  display: none;
+}
+
+.pair-card.is-open .pair-card__icon {
+  display: block;
+}
+
+.pair-card.is-matched {
+  opacity: 1;
+  background: var(--green);
+}
+
+.pair-card.is-mismatch {
+  background: var(--red);
+}
+
+@media (max-width: 520px) {
+  .pair-hunt-content {
+    min-height: calc(100svh - 72px);
+    padding: 24px 20px 32px;
+  }
+
+  .pair-board {
+    gap: 4px;
+    margin-top: 14px;
+    padding: 6px;
+  }
+}
+
+@media (max-height: 720px) and (min-width: 521px) {
+  .pair-hunt-content {
+    padding-block: 20px 28px;
+  }
+
+  .pair-hunt-console {
+    width: min(100%, 540px);
+  }
+
+  .pair-board {
+    margin-block: 14px 12px;
+  }
+}

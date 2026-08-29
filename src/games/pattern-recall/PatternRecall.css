@@ -6,70 +6,6 @@
   box-sizing: border-box;
 }
 
-.game-back-link {
-  flex: none;
-  padding: 6px 9px 5px;
-  color: var(--ink);
-  background: var(--yellow);
-  border: 2px solid var(--ink);
-  box-shadow: 3px 3px 0 var(--ink);
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-}
-
-.game-nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.game-back-link:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 var(--ink);
-}
-
-.game-back-link:focus-visible {
-  outline: 3px solid var(--ink);
-  outline-offset: 3px;
-}
-
-.game-console {
-  width: min(100%, 560px);
-}
-
-.game-console__header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  min-height: 36px;
-  padding-bottom: 14px;
-  border-bottom: var(--line);
-}
-
-.game-status,
-.game-progress {
-  margin: 0;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1.4;
-  text-transform: uppercase;
-}
-
-.game-status {
-  text-transform: none;
-}
-
-.game-progress {
-  flex: none;
-  font-size: 16px;
-}
-
 .memory-board {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -103,35 +39,10 @@
     padding: 30px 20px 40px;
   }
 
-  .game-back-link {
-    padding: 5px 7px 4px;
-    font-size: 9px;
-  }
-
-  .game-nav-actions {
-    gap: 7px;
-  }
-
   .memory-board {
     gap: 4px;
     margin-top: 14px;
     padding: 6px;
   }
 
-  .game-console__header {
-    gap: 8px;
-    padding-bottom: 10px;
-  }
-
-  .game-status,
-  .game-progress {
-    font-size: 10px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .game-back-link,
-  .game-button {
-    transition: none;
-  }
 }
