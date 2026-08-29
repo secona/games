@@ -13,10 +13,10 @@
 .pair-board {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 6px;
+  gap: 3px;
   width: 100%;
   margin: 20px auto 18px;
-  padding: 10px;
+  padding: 3px;
   border: var(--line);
   background: var(--ink);
   box-sizing: border-box;
@@ -27,12 +27,14 @@
   place-items: center;
   position: relative;
   overflow: hidden;
+  border: 0;
   color: var(--ink);
   background: var(--yellow);
 }
 
 .pair-card:not(:disabled):hover {
   background: #eab83e;
+  transform: none;
 }
 
 .pair-card__back {
@@ -75,9 +77,9 @@
   }
 
   .pair-board {
-    gap: 4px;
+    gap: 2px;
     margin-top: 14px;
-    padding: 6px;
+    padding: 2px;
   }
 }
 
