@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from '@tanstack/react-router'
+import { Button } from '../../components/Button'
 import { Modal } from '../../components/Modal'
 import './PatternRecall.css'
 
@@ -102,14 +103,14 @@ function PatternRecall() {
             description="Watch the six highlighted tiles, then find them again after the pattern disappears."
             eyebrow="MEMORY TEST / 01"
             trigger={
-              <button
+              <Button
                 aria-label="About Pattern Recall"
-                className="game-info-button"
                 title="About Pattern Recall"
                 type="button"
+                variant="icon"
               >
                 <span aria-hidden="true">i</span>
-              </button>
+              </Button>
             }
             title="Pattern Recall"
           >
@@ -137,12 +138,13 @@ function PatternRecall() {
               const isSelected = selected.has(index)
 
               return (
-                <button
+                <Button
                   className={`memory-tile${isRevealed ? ' is-revealed' : ''}${isAnswer ? ' is-answer' : ''}${isSelected ? ' is-selected' : ''}`}
                   disabled={phase !== 'recall'}
                   key={index}
                   onClick={() => selectTile(index)}
                   type="button"
+                  variant="tile"
                   aria-label={`Tile ${index + 1}${isRevealed || isAnswer ? ', highlighted' : ''}`}
                   aria-pressed={isSelected}
                 />
@@ -150,15 +152,16 @@ function PatternRecall() {
             })}
           </div>
 
-          <button
+          <Button
             aria-hidden={!isGameOver && phase !== 'idle'}
-            className={`game-action${!isGameOver && phase !== 'idle' ? ' is-hidden' : ''}`}
+            className={!isGameOver && phase !== 'idle' ? 'is-hidden' : undefined}
             disabled={!isGameOver && phase !== 'idle'}
             onClick={startRound}
             type="button"
+            variant="action"
           >
             {phase === 'idle' ? 'Start round' : 'Play again'} <span>↗</span>
-          </button>
+          </Button>
         </section>
       </div>
 

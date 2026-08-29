@@ -42,28 +42,6 @@
   letter-spacing: 0.08em;
 }
 
-.game-modal__close {
-  display: grid;
-  flex: none;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  color: var(--ink);
-  background: var(--red);
-  border: 2px solid var(--ink);
-  font-family: var(--mono);
-  font-size: 21px;
-  font-weight: 700;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.game-modal__close:focus-visible {
-  outline: 3px solid var(--ink);
-  outline-offset: 3px;
-}
-
 .game-modal__title {
   margin: 30px 0 14px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;

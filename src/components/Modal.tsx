@@ -1,5 +1,6 @@
 import { Dialog } from '@base-ui/react/dialog'
 import type { ReactElement, ReactNode } from 'react'
+import { Button } from './Button'
 import './Modal.css'
 
 type ModalProps = {
@@ -44,11 +45,12 @@ function Modal({
             <div className="game-modal__header">
               <div className="game-modal__eyebrow">{eyebrow}</div>
               <Dialog.Close
-                aria-label={closeLabel}
-                className="game-modal__close"
-              >
-                ×
-              </Dialog.Close>
+                render={
+                  <Button variant="close" aria-label={closeLabel}>
+                    ×
+                  </Button>
+                }
+              />
             </div>
 
             <Dialog.Title className="game-modal__title">

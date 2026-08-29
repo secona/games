@@ -1,0 +1,146 @@
+.game-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 0;
+  font: inherit;
+}
+
+.game-button--default {
+  padding: 10px 14px;
+  color: var(--ink);
+  background: var(--yellow);
+  border: var(--line);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.game-button--default:hover {
+  background: #eab83e;
+}
+
+.game-button--icon,
+.game-button--close {
+  display: grid;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  padding: 0;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  font-family: var(--mono);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.game-button--icon {
+  background: var(--green);
+  box-shadow: 3px 3px 0 var(--ink);
+  font-size: 16px;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.game-button--icon:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.game-button--close {
+  width: 28px;
+  height: 28px;
+  background: var(--red);
+  font-size: 21px;
+}
+
+.game-button--icon:focus-visible,
+.game-button--close:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.game-button--tile {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  cursor: pointer;
+  transition: transform 120ms ease, background-color 120ms ease;
+}
+
+.game-button--tile:not(:disabled):hover {
+  background: var(--yellow);
+  transform: translate(-2px, -2px);
+}
+
+.game-button--tile:focus-visible {
+  z-index: 1;
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+}
+
+.game-button--action {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px 16px;
+  color: var(--ink);
+  background: var(--yellow);
+  border: var(--line);
+  box-shadow: 4px 4px 0 var(--ink);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: left;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.game-button--action.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.game-button--action span {
+  float: right;
+  font-size: 18px;
+  line-height: 0.7;
+}
+
+.game-button--action:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.game-button--action:active {
+  transform: translate(0, 0);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.game-button--action:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+
+@media (max-width: 520px) {
+  .game-button--icon {
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-button--icon,
+  .game-button--tile,
+  .game-button--action {
+    transition: none;
+  }
+}
