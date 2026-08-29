@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from '@tanstack/react-router'
 import './PatternRecall.css'
 
 const GRID_SIZE = 5
@@ -115,9 +116,9 @@ function PatternRecall() {
         <WindowButtons />
         <span className="title-bar__label">GAMES.SECONA.DEV / PATTERN RECALL</span>
         <div className="game-nav-actions">
-          <a className="game-back-link" href="/">
+          <Link className="game-back-link" to="/">
             ← HOME
-          </a>
+          </Link>
           <button
             aria-label="About Pattern Recall"
             className="game-info-button"
