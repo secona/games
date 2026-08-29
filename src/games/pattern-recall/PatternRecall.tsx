@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import { Button } from '../../components/Button'
 import { Modal } from '../../components/Modal'
-import { WindowButtons } from '../../components/WindowButtons'
+import { TitleBar } from '../../components/TitleBar'
 import './PatternRecall.css'
 
 const GRID_SIZE = 5
@@ -82,33 +82,29 @@ function PatternRecall() {
 
   return (
     <main className="page-shell pattern-recall-page">
-      <header className="title-bar">
-        <WindowButtons />
-        <span className="title-bar__label">GAMES.SECONA.DEV / PATTERN RECALL</span>
-        <div className="game-nav-actions">
-          <Link className="game-back-link" to="/">
-            ← HOME
-          </Link>
-          <Modal
-            closeLabel="Close game information"
-            description="Watch the six highlighted tiles, then find them again after the pattern disappears."
-            eyebrow="PATTERN RECALL"
-            trigger={
-              <Button
-                aria-label="About Pattern Recall"
-                title="About Pattern Recall"
-                type="button"
-                variant="icon"
-              >
-                <span aria-hidden="true">i</span>
-              </Button>
-            }
-            title="Pattern Recall"
-          >
-            <p>Pick every matching tile to win. One wrong choice ends the round.</p>
-          </Modal>
-        </div>
-      </header>
+      <TitleBar label="GAMES.SECONA.DEV / PATTERN RECALL">
+        <Link className="game-back-link" to="/">
+          ← HOME
+        </Link>
+        <Modal
+          closeLabel="Close game information"
+          description="Watch the six highlighted tiles, then find them again after the pattern disappears."
+          eyebrow="PATTERN RECALL"
+          trigger={
+            <Button
+              aria-label="About Pattern Recall"
+              title="About Pattern Recall"
+              type="button"
+              variant="icon"
+            >
+              <span aria-hidden="true">i</span>
+            </Button>
+          }
+          title="Pattern Recall"
+        >
+          <p>Pick every matching tile to win. One wrong choice ends the round.</p>
+        </Modal>
+      </TitleBar>
 
       <div className="pattern-recall-content">
         <section className="game-console" aria-label="Pattern Recall game">

@@ -1,16 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="arcade">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192x192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f5c84b" />
+    <meta name="theme-color" content="#ffd400" />
     <meta name="description" content="A collection of quick browser games." />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="GAMES" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <script>
+      (() => {
+        const themeColors = {
+          arcade: '#ffd400',
+          'catppuccin-latte': '#1e66f5',
+          'primer-colorblind': '#8250df',
+          'tokyo-night-light': '#007197',
+        }
+
+        try {
+          const theme = window.localStorage.getItem('games:theme:v1')
+
+          if (theme && Object.hasOwn(themeColors, theme)) {
+            document.documentElement.dataset.theme = theme
+            document.querySelector('meta[name="theme-color"]').content =
+              themeColors[theme]
+          }
+        } catch {
+          // Arcade remains the default when storage is unavailable.
+        }
+      })()
+    </script>
     <title>GAMES — games.secona.dev</title>
   </head>
   <body>

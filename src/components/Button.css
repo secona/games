@@ -9,8 +9,8 @@
 
 .game-button--default {
   padding: 10px 14px;
-  color: var(--ink);
-  background: var(--yellow);
+  color: var(--on-primary);
+  background: var(--primary);
   border: var(--line);
   font-family: var(--mono);
   font-size: 12px;
@@ -19,7 +19,7 @@
 }
 
 .game-button--default:hover {
-  background: #eab83e;
+  background: var(--primary-hover);
 }
 
 .game-button--icon,
@@ -29,7 +29,7 @@
   width: 29px;
   height: 29px;
   padding: 0;
-  color: var(--ink);
+  color: var(--on-primary);
   border: 2px solid var(--ink);
   font-family: var(--mono);
   font-weight: 700;
@@ -38,7 +38,7 @@
 }
 
 .game-button--icon {
-  background: var(--blue);
+  background: var(--primary);
   box-shadow: 3px 3px 0 var(--ink);
   font-size: 16px;
   transition: transform 120ms ease, box-shadow 120ms ease;
@@ -52,7 +52,8 @@
 .game-button--close {
   width: 28px;
   height: 28px;
-  background: var(--red);
+  color: var(--on-error);
+  background: var(--error);
   font-size: 21px;
 }
 
@@ -70,17 +71,17 @@
   border: 2px solid var(--ink);
   background: var(--paper);
   cursor: pointer;
-  transition: transform 120ms ease, background-color 120ms ease;
+  transition: transform 120ms ease, background-color 120ms ease, color 120ms ease;
 }
 
 .game-button--tile:not(:disabled):hover {
-  background: var(--yellow);
+  background: var(--tile-hover);
   transform: translate(-2px, -2px);
 }
 
 .game-button--tile:focus-visible {
   z-index: 1;
-  outline: 3px solid var(--red);
+  outline: 3px solid var(--error);
   outline-offset: 2px;
 }
 
@@ -89,8 +90,8 @@
   width: 100%;
   margin-top: 18px;
   padding: 14px 16px;
-  color: var(--ink);
-  background: var(--yellow);
+  color: var(--on-primary);
+  background: var(--primary);
   border: var(--line);
   box-shadow: 4px 4px 0 var(--ink);
   font-family: var(--mono);

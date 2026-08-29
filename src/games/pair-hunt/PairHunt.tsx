@@ -24,7 +24,7 @@ import {
 } from 'lucide-react'
 import { Button } from '../../components/Button'
 import { Modal } from '../../components/Modal'
-import { WindowButtons } from '../../components/WindowButtons'
+import { TitleBar } from '../../components/TitleBar'
 import './PairHunt.css'
 
 const ICONS: Array<{ icon: LucideIcon; name: string }> = [
@@ -141,33 +141,29 @@ function PairHunt() {
 
   return (
     <main className="page-shell pair-hunt-page">
-      <header className="title-bar">
-        <WindowButtons />
-        <span className="title-bar__label">GAMES.SECONA.DEV / PAIR HUNT</span>
-        <div className="game-nav-actions">
-          <Link className="game-back-link" to="/">
-            ← HOME
-          </Link>
-          <Modal
-            closeLabel="Close game information"
-            description="Turn over two cards at a time and find all eighteen matching icon pairs."
-            eyebrow="PAIR HUNT"
-            trigger={
-              <Button
-                aria-label="About Pair Hunt"
-                title="About Pair Hunt"
-                type="button"
-                variant="icon"
-              >
-                <span aria-hidden="true">i</span>
-              </Button>
-            }
-            title="Pair Hunt"
-          >
-            <p>Matched cards stay open. Clear the tray in as few moves as possible.</p>
-          </Modal>
-        </div>
-      </header>
+      <TitleBar label="GAMES.SECONA.DEV / PAIR HUNT">
+        <Link className="game-back-link" to="/">
+          ← HOME
+        </Link>
+        <Modal
+          closeLabel="Close game information"
+          description="Turn over two cards at a time and find all eighteen matching icon pairs."
+          eyebrow="PAIR HUNT"
+          trigger={
+            <Button
+              aria-label="About Pair Hunt"
+              title="About Pair Hunt"
+              type="button"
+              variant="icon"
+            >
+              <span aria-hidden="true">i</span>
+            </Button>
+          }
+          title="Pair Hunt"
+        >
+          <p>Matched cards stay open. Clear the tray in as few moves as possible.</p>
+        </Modal>
+      </TitleBar>
 
       <div className="pair-hunt-content">
         <section className="game-console pair-hunt-console" aria-label="Pair Hunt game">

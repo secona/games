@@ -75,21 +75,29 @@ Portaled UI is above the app stacking context. Keep `#root { isolation: isolate;
 
 ## Visual system
 
-Use the existing tokens from `src/App.css`:
+Use the semantic tokens from `src/theme.css`. Arcade is the first-visit default:
 
 ```css
---ink: #171717;
---paper: #f2f6fa;
---yellow: #f5c84b;
---red: #f16a5a;
---blue: #6f9fe8;
+--canvas: #fff200;
+--ink: #151525;
+--paper: #fbfbff;
+--surface: #e7e8f4;
+--subtle-ink: #5b5d72;
+--primary: #ffd400;
+--primary-hover: #fff200;
+--tile-hover: #b8b5ff;
+--revealed: #008fa8;
+--correct: #2457d6;
+--error: #d81b60;
+--warm: #ffd43b;
+--on-primary: #151525;
 --line: 2px solid var(--ink);
 --shadow: 6px 6px 0 var(--ink);
 ```
 
 The intended direction is a crisp retro game interface:
 
-- a cool blue-gray canvas, pale paper surface, near-black ink, and yellow/red/blue accents chosen to keep yellow and secondary states distinct for people with protanopia;
+- an arcade-forward default plus Catppuccin Latte, Primer Colorblind, and Tokyo Night Light alternatives, all expressed through the same semantic tokens;
 - 2px dark borders and hard offset shadows, not soft shadows;
 - square or rectangular controls with little or no rounding;
 - Space Mono for labels, statuses, progress, and controls;
@@ -99,7 +107,9 @@ The intended direction is a crisp retro game interface:
 
 Prefer existing tokens and selectors over new near-duplicate colors. Avoid gradients, glass effects, excessive radii, and generic UI-library styling unless the request explicitly calls for them.
 
-Do not pair green with yellow to communicate different states. The product owner has protanopia, so use the established blue accent for states that need to contrast with yellow, retain non-color cues where available, and do not rely on color alone to communicate meaning.
+Do not pair green with yellow to communicate different states. The product owner has protanopia and prefers colors that pop rather than washed-out pastels. Game boards should be visually quiet at rest: use `--paper` for face-down tiles, then `--tile-hover`, `--revealed`, `--correct`, and `--error` for interaction states. Retain non-color cues such as the matched-card check badge and do not rely on color alone to communicate meaning.
+
+Theme selection is global and device-local. Each theme must give `--primary` a visibly distinct control color so buttons clearly respond when themes change. Arcade pairs a neon-lemon canvas with deeper electric-yellow controls, dark control ink, and a near-white paper surface for a striking two-yellow treatment. Add Settings through the shared `TitleBar`, keep theme IDs validated, store only the selected ID under the versioned key `games:theme:v1`, and apply saved themes before first paint.
 
 Global layout invariants:
 

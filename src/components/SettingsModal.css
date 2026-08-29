@@ -1,0 +1,120 @@
+.settings-modal {
+  width: min(100%, 470px);
+}
+
+.settings-trigger svg {
+  display: block;
+}
+
+.theme-select__label {
+  margin: 22px 0 7px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.theme-select__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--line);
+  box-shadow: 4px 4px 0 var(--ink);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.theme-select__trigger:focus-visible {
+  outline: 3px solid var(--error);
+  outline-offset: 3px;
+}
+
+.theme-select__icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.theme-select__positioner {
+  z-index: 30;
+  width: var(--anchor-width);
+  max-height: var(--available-height);
+}
+
+.theme-select__popup {
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--line);
+  box-shadow: 5px 5px 0 var(--ink);
+  transform-origin: var(--transform-origin);
+}
+
+.theme-select__list {
+  padding: 4px;
+  overflow-y: auto;
+}
+
+.theme-select__item {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: 42px;
+  padding: 7px 8px;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  outline: 0;
+}
+
+.theme-select__item[data-highlighted] {
+  background: var(--surface);
+}
+
+.theme-select__indicator {
+  visibility: hidden;
+}
+
+.theme-select__item[data-selected] .theme-select__indicator {
+  visibility: visible;
+}
+
+.theme-select__item-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.theme-swatches {
+  display: flex;
+  gap: 3px;
+}
+
+.theme-swatch {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--ink);
+}
+
+@media (max-width: 520px) {
+  .theme-select__item {
+    grid-template-columns: 16px minmax(0, 1fr) auto;
+    padding-inline: 6px;
+    font-size: 10px;
+  }
+
+  .theme-swatch {
+    width: 10px;
+    height: 10px;
+  }
+}

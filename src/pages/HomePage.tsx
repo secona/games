@@ -1,13 +1,10 @@
 import { Link } from '@tanstack/react-router'
-import { WindowButtons } from '../components/WindowButtons'
+import { TitleBar } from '../components/TitleBar'
 
 function HomePage() {
   return (
     <main className="page-shell">
-      <header className="title-bar">
-        <WindowButtons />
-        <span className="title-bar__label">GAMES.SECONA.DEV</span>
-      </header>
+      <TitleBar label="GAMES.SECONA.DEV" />
 
       <section className="hero" aria-labelledby="games-title">
         <h1 id="games-title">GAMES</h1>

@@ -13,13 +13,13 @@
 }
 
 .window-button--red {
-  background: var(--red);
+  background: var(--error);
 }
 
 .window-button--yellow {
-  background: var(--yellow);
+  background: var(--warm);
 }
 
 .window-button--blue {
-  background: var(--blue);
+  background: var(--correct);
 }

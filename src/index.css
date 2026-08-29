@@ -14,7 +14,7 @@
 }
 
 html {
-  background: #c8d4e3;
+  background: var(--canvas);
 }
 
 body {

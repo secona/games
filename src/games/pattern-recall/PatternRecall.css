@@ -27,17 +27,17 @@
 }
 
 .memory-tile.is-revealed {
-  background: var(--yellow);
+  background: var(--revealed);
   box-shadow: inset 0 0 0 2px var(--ink);
 }
 
 .memory-tile.is-selected {
-  background: var(--blue);
+  background: var(--correct);
   box-shadow: inset 0 0 0 2px var(--ink);
 }
 
 .memory-tile.is-answer {
-  background: var(--red);
+  background: var(--error);
   box-shadow: inset 0 0 0 2px var(--ink);
 }
 
