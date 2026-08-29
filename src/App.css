@@ -10,6 +10,7 @@
 
 #root {
   min-height: 100svh;
+  isolation: isolate;
 }
 
 .page-shell {
