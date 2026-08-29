@@ -177,7 +177,6 @@ h1 {
   outline-offset: -8px;
 }
 
-.game-slot__index,
 .game-slot__action {
   font-family: var(--mono);
   font-size: 11px;
@@ -185,14 +184,9 @@ h1 {
   letter-spacing: 0.08em;
 }
 
-.game-slot__index {
-  display: block;
-}
-
 .game-slot__name {
   display: block;
   max-width: 220px;
-  margin-top: 24px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: clamp(2rem, 4vw, 3.25rem);
   line-height: 0.9;
@@ -272,7 +266,6 @@ h1 {
   }
 
   .game-slot__name {
-    margin-top: 16px;
     font-size: clamp(1.45rem, 8vw, 2rem);
   }
 
