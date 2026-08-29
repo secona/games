@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="arcade">
+<html lang="en" data-theme="monochrome">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192x192.png" />
@@ -14,10 +14,10 @@
     <script>
       (() => {
         const themeColors = {
-          arcade: '#ffd400',
-          'catppuccin-latte': '#1e66f5',
-          'primer-colorblind': '#8250df',
-          'tokyo-night-light': '#007197',
+          monochrome: '#e8e8e8',
+          'catppuccin-latte': '#8839ef',
+          'primer-colorblind': '#0969da',
+          'tokyo-night-light': '#2959aa',
         }
 
         try {
@@ -29,7 +29,7 @@
               themeColors[theme]
           }
         } catch {
-          // Arcade remains the default when storage is unavailable.
+          // Monochrome remains the default when storage is unavailable.
         }
       })()
     </script>
