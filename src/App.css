@@ -86,8 +86,8 @@ h1 {
 .game-slot--playable {
   position: relative;
   padding: 18px;
-  color: var(--on-primary);
-  background: var(--primary);
+  color: var(--ink);
+  background: var(--surface);
   border: var(--line);
   box-sizing: border-box;
   text-decoration: none;
@@ -96,7 +96,8 @@ h1 {
 
 .game-slot--playable:hover {
   z-index: 1;
-  background: var(--primary-hover);
+  color: var(--on-primary);
+  background: var(--primary);
   transform: translate(-4px, -4px);
   box-shadow: 4px 4px 0 var(--ink);
 }
@@ -136,16 +137,6 @@ h1 {
   position: absolute;
   right: 18px;
   bottom: 18px;
-}
-
-.game-slot--playable:nth-child(even) {
-  color: var(--on-correct);
-  background: var(--correct);
-}
-
-.game-slot--playable:nth-child(even):hover {
-  color: var(--on-primary);
-  background: var(--primary);
 }
 
 @media (max-width: 680px) {
