@@ -1,0 +1,247 @@
+.ricochet-content {
+  display: grid;
+  place-items: center;
+  min-height: calc(100svh - 88px);
+  padding: clamp(24px, 5vh, 56px) 7.5%;
+  box-sizing: border-box;
+}
+
+.ricochet-console {
+  width: min(100%, 620px);
+}
+
+.ricochet-scores {
+  flex: none;
+  text-align: right;
+}
+
+.ricochet-best {
+  margin: 2px 0 0;
+  color: var(--subtle-ink);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.ricochet-field {
+  position: relative;
+  width: calc(100% - 64px);
+  max-width: 500px;
+  margin: 34px auto 28px;
+}
+
+.ricochet-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  aspect-ratio: 1;
+  background: var(--ink);
+  border: var(--line);
+  gap: 2px;
+  overflow: hidden;
+}
+
+.ricochet-cell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  background: var(--paper);
+}
+
+.ricochet-cell::before {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  content: '';
+  background: var(--surface);
+}
+
+.ricochet-deflector {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 68%;
+  height: 8px;
+  background: var(--revealed);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.ricochet-deflector--slash {
+  transform: rotate(-45deg);
+}
+
+.ricochet-deflector--backslash {
+  transform: rotate(45deg);
+}
+
+.ricochet-trace {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.ricochet-trace__line {
+  fill: none;
+  stroke: var(--correct);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-linecap: square;
+  stroke-linejoin: bevel;
+  stroke-width: 7px;
+  animation: ricochet-draw-trace 700ms ease-out forwards;
+}
+
+.ricochet-field--lost .ricochet-trace__line {
+  stroke: var(--error);
+}
+
+.ricochet-board__idle {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  color: var(--subtle-ink);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  font-family: var(--mono);
+  font-size: clamp(10px, 2.6vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.ricochet-field .ricochet-gate {
+  --gate-size: clamp(28px, 7vw, 34px);
+  position: absolute;
+  z-index: 4;
+  width: var(--gate-size);
+  height: var(--gate-size);
+  min-width: 0;
+  aspect-ratio: 1;
+  border: 2px solid var(--ink);
+  background: var(--surface);
+}
+
+.ricochet-field .ricochet-gate:not(:disabled) {
+  background: var(--paper);
+}
+
+.ricochet-field .ricochet-gate:not(:disabled):hover {
+  background: var(--tile-hover);
+  transform: translate(-50%, -50%) scale(1.14);
+}
+
+.ricochet-gate--north,
+.ricochet-gate--south {
+  left: var(--gate-position);
+  transform: translate(-50%, -50%);
+}
+
+.ricochet-gate--north {
+  top: 0;
+}
+
+.ricochet-gate--south {
+  top: 100%;
+}
+
+.ricochet-gate--east,
+.ricochet-gate--west {
+  top: var(--gate-position);
+  transform: translate(-50%, -50%);
+}
+
+.ricochet-gate--east {
+  left: 100%;
+}
+
+.ricochet-gate--west {
+  left: 0;
+}
+
+.ricochet-field .ricochet-gate:focus-visible {
+  z-index: 5;
+}
+
+.ricochet-field .ricochet-gate.is-entrance {
+  background: var(--primary);
+  opacity: 1;
+}
+
+.ricochet-field .ricochet-gate.is-correct {
+  color: var(--on-correct);
+  background: var(--correct);
+  opacity: 1;
+}
+
+.ricochet-field .ricochet-gate.is-wrong {
+  color: var(--on-error);
+  background: var(--error);
+  opacity: 1;
+}
+
+.ricochet-ball {
+  display: block;
+  width: 48%;
+  aspect-ratio: 1;
+  background: var(--on-primary);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+
+.ricochet-gate__mark {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+@keyframes ricochet-draw-trace {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .ricochet-content {
+    min-height: calc(100svh - 72px);
+    padding: 24px 14px 32px;
+  }
+
+  .ricochet-field {
+    width: calc(100% - 48px);
+    margin: 30px auto 24px;
+  }
+
+  .ricochet-deflector {
+    height: 6px;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+}
+
+@media (max-height: 760px) and (min-width: 521px) {
+  .ricochet-content {
+    padding-top: 20px;
+    padding-bottom: 24px;
+  }
+
+  .ricochet-field {
+    max-width: 430px;
+    margin-top: 28px;
+    margin-bottom: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ricochet-trace__line {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

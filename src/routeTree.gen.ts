@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PairHuntRouteImport } from './routes/pair-hunt'
 import { Route as PatternRecallRouteImport } from './routes/pattern-recall'
+import { Route as RicochetRouteImport } from './routes/ricochet'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +29,44 @@ const PatternRecallRoute = PatternRecallRouteImport.update({
   path: '/pattern-recall',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RicochetRoute = RicochetRouteImport.update({
+  id: '/ricochet',
+  path: '/ricochet',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/pair-hunt': typeof PairHuntRoute
   '/pattern-recall': typeof PatternRecallRoute
+  '/ricochet': typeof RicochetRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/pair-hunt': typeof PairHuntRoute
   '/pattern-recall': typeof PatternRecallRoute
+  '/ricochet': typeof RicochetRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/pair-hunt': typeof PairHuntRoute
   '/pattern-recall': typeof PatternRecallRoute
+  '/ricochet': typeof RicochetRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pair-hunt' | '/pattern-recall'
+  fullPaths: '/' | '/pair-hunt' | '/pattern-recall' | '/ricochet'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pair-hunt' | '/pattern-recall'
-  id: '__root__' | '/' | '/pair-hunt' | '/pattern-recall'
+  to: '/' | '/pair-hunt' | '/pattern-recall' | '/ricochet'
+  id: '__root__' | '/' | '/pair-hunt' | '/pattern-recall' | '/ricochet'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PairHuntRoute: typeof PairHuntRoute
   PatternRecallRoute: typeof PatternRecallRoute
+  RicochetRoute: typeof RicochetRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +92,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PatternRecallRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ricochet': {
+      id: '/ricochet'
+      path: '/ricochet'
+      fullPath: '/ricochet'
+      preLoaderRoute: typeof RicochetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PairHuntRoute: PairHuntRoute,
   PatternRecallRoute: PatternRecallRoute,
+  RicochetRoute: RicochetRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

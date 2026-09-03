@@ -25,6 +25,13 @@ function HomePage() {
           </span>
           <span className="game-slot__action">PLAY ↗</span>
         </Link>
+        <Link className="game-slot game-slot--playable" to="/ricochet">
+          <span className="game-slot__name">Ricochet</span>
+          <span className="game-slot__description">
+            Memorize the angles, then predict the hidden route.
+          </span>
+          <span className="game-slot__action">PLAY ↗</span>
+        </Link>
       </section>
     </main>
   )
